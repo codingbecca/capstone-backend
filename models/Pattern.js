@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const PatternSchema = new mongoose.Schema({
+const patternSchema = new mongoose.Schema({
     foot_circ: {
         type: Number,
         required: true
@@ -34,3 +34,5 @@ const PatternSchema = new mongoose.Schema({
         required: true
     },
 })
+
+export default mongoose.model('Pattern', patternSchema)
