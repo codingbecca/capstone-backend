@@ -1,5 +1,5 @@
 import { Router } from "express";
-import Pattern from "../models/Pattern";
+import Pattern from "../models/Pattern.js";
 
 const patternRouter = new Router();
 
@@ -64,7 +64,7 @@ patternRouter
 
     })
     /**
-     * PATCH /api/patterns/:patternId
+     * PATCH /api/patterns/:patternId updates a pattern by id
      */
     .patch(async(req, res) => {
         try {
@@ -82,6 +82,9 @@ patternRouter
             })  
         }
     })
+    /**
+     * DELETE /api/patterns/:patternId deletes a pattern by id
+     */
     .delete(async(req, res) => {
         try {
             const pattern = await Pattern.findByIdAndDelete(req.params.patternId)
