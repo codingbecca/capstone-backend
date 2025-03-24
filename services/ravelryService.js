@@ -23,7 +23,7 @@ export const createRavelryProject = async(projectData) => {
          return response.data
         
     } catch (e) {
-        console.error("error uploading project to Ravelry", e.message)
+        console.error("error uploading project to Ravelry", e)
 
         throw new Error('Could not add project to Ravelry')
     }
