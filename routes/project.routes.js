@@ -37,7 +37,7 @@ projectRouter
 
             let ravelryResponse;
             if(saveToRavelry){
-                ravelryResponse = await createRavelryProject(projectDetails)
+                ravelryResponse = await createRavelryProject(newProject.projectDetails)
             }
 
             res.status(201).json({project: newProject, ravelry: ravelryResponse})

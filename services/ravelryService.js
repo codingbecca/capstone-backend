@@ -8,7 +8,7 @@ export const createRavelryProject = async(projectData) => {
     try {
         const response = await axios.post(
             `${RAV_API_BASE_URI}/projects/DragonChilde/create.json`, 
-            projectData,
+            {data: projectData},
             {
                 auth: {
                     username: RAV_USERNAME,
