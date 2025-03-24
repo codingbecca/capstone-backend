@@ -6,6 +6,8 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 import { healthRouter } from './routes/health.js';
+import projectRouter from './routes/project.routes.js';
+import patternRouter from './routes/pattern.routes.js';
 
 dotenv.config() //configures .env to be usable in our project
 // console.log(process.env.MONGODB_URI)
@@ -42,6 +44,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/health', healthRouter)
+app.use('/api/patterns', patternRouter)
+app.use('/api/projects', projectRouter)
 
 //global error handling middleware
 app.use((err, _req, res, next) => {

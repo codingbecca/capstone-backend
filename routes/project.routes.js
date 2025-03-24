@@ -1,5 +1,8 @@
 import { Router } from "express";
+
 import Project from "../models/Project.js";
+
+import { createRavelryProject, getRavelryProject } from "../services/ravelryService.js";
 
 const projectRouter = new Router();
 
@@ -28,10 +31,16 @@ projectRouter
      */
     .post(async(req, res) => {
         try {
-            const newProject = new Project(req.body)
+            const {saveToRavelry, ...projectDetails} = req.body
+            const newProject = new Project(projectDetails)
             await newProject.save()
 
-            res.status(201).json(newProject)
+            let ravelryResponse;
+            if(saveToRavelry){
+                ravelryResponse = await createRavelryProject(projectDetails)
+            }
+
+            res.status(201).json({project: newProject, ravelry: ravelryResponse})
         } catch (e) {
             console.error(e)
 
@@ -41,6 +50,12 @@ projectRouter
             })
         }
     })
+
+// projectRouter.get('/ravelry', async(req, res) => {
+//         const result = await getRavelryProject();
+    
+//         res.json(result)
+//     })
 
 projectRouter
     .route('/:projectId')
