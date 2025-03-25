@@ -3,9 +3,6 @@ import mongoose from "mongoose";
 const projectSchema = new mongoose.Schema({
     saveToRavelry: Boolean,
     projectDetails: {
-        completed: {
-            type: Date
-        },
         craft_id: {
             type: Number,
             default: 2
@@ -16,11 +13,7 @@ const projectSchema = new mongoose.Schema({
             required: true,
             unique: true
         },
-        notes: String,
-        started: {
-            type: Date,
-            default: Date.now
-        }
+        notes: String
     }
 });
 
