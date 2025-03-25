@@ -33,12 +33,13 @@ projectRouter
         try {
             const {saveToRavelry, ...projectDetails} = req.body
             const newProject = new Project(projectDetails)
-            await newProject.save()
-
+            
             let ravelryResponse;
             if(saveToRavelry){
                 ravelryResponse = await createRavelryProject(newProject.projectDetails)
             }
+            
+            await newProject.save()
 
             res.status(201).json({project: newProject, ravelry: ravelryResponse})
         } catch (e) {
