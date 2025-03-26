@@ -12,6 +12,6 @@ API documentation can be found [here](https://capstone-backend-i1us.onrender.com
 - pug
 
 ## Future Work
-- implement sign-in to Ravlery so projects can be saved to other accounts
+- implement sign-in to Ravelry so projects can be saved to other accounts
 - implement users
 
