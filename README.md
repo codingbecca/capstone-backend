@@ -1,7 +1,7 @@
 # Backend API For Stocking Pattern Generator
 
 ## Description 
-This is the backend for my Per Scholas capstone project, a web app that generates a custom, toe-up, thigh high stocking pattern. The backend is connected to my personal Ravelry account and can add project to my account  
+This is the backend for my Per Scholas capstone project, a web app that generates a custom, toe-up, thigh high stocking pattern. The backend is connected to my personal Ravelry account and can add projects to my account  
 
 API documentation can be found [here](https://capstone-backend-i1us.onrender.com/)
 
