@@ -2,7 +2,7 @@ import { Router } from "express";
 
 import Project from "../models/Project.js";
 
-import { createRavelryProject, getRavelryProject } from "../services/ravelryService.js";
+import { createRavelryProject } from "../services/ravelryService.js";
 
 const projectRouter = new Router();
 
@@ -51,12 +51,6 @@ projectRouter
             })
         }
     })
-
-// projectRouter.get('/ravelry', async(req, res) => {
-//         const result = await getRavelryProject();
-    
-//         res.json(result)
-//     })
 
 projectRouter
     .route('/:projectId')

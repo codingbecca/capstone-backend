@@ -9,7 +9,7 @@ html(lang="en")
 
     h2 Base URL
     p All endpoints are prefixed with: 
-      code http://localhost:4000/api
+      code https://capstone-backend-i1us.onrender.com/api
 
     h2 Authentication
     p Currently, no authentication is required for the API endpoints.
@@ -28,42 +28,52 @@ html(lang="en")
           |   "status": "OK"
           | }
 
-    h3 Users
+    h3 Patterns
 
     .endpoint
       span.method.get GET
-      code /users
-      p Retrieve all users
+      code /patterns
+      p Retrieve all patterns
       h4 Response
       pre
         code
           | [
           |   {
           |     "_id": "string",
-          |     "name": "string",
-          |     "email": "string",
-          |     "createdAt": "date"
+          |     "title": "string",
+          |     "foot_circ": "number",
+          |     "foot_length": "number",
+          |     "thigh_circ": "number",
+          |     "sock_length": "number",
+          |     "stitch_gauge": "number",
+          |     "row_gauge": "number",
+          |     "pattern_repeat": "number"
           |   }
           | ]
 
     .endpoint
       span.method.get GET
-      code /users/:id
-      p Retrieve a specific user by ID
+      code /patterns/:patternId
+      p Retrieve a specific pattern by ID
       h4 Response
       pre
         code
           | {
           |   "_id": "string",
-          |   "name": "string",
-          |   "email": "string",
-          |   "createdAt": "date"
+          |   "title": "string",
+          |   "foot_circ": "number",
+          |   "foot_length": "number",
+          |   "thigh_circ": "number",
+          |   "sock_length": "number",
+          |   "stitch_gauge": "number",
+          |   "row_gauge": "number",
+          |   "pattern_repeat": "number"
           | }
 
     .endpoint
       span.method.post POST
-      code /users
-      p Create a new user
+      code /patterns
+      p Create a new pattern
       h4 Request Body
       table
         tr
@@ -72,29 +82,64 @@ html(lang="en")
           th Required
           th Description
         tr
-          td name
+          td title
           td string
-          td Yes
-          td User's full name
+          td yes
+          td title of the pattern
         tr
-          td email
-          td string
-          td Yes
-          td User's email address
+          td foot_circ
+          td number
+          td yes
+          td circumference of the foot (in inches)
+        tr
+          td foot_length
+          td number
+          td yes
+          td foot length (in inches)
+        tr
+          td thigh_circ
+          td number
+          td yes
+          td circumference at the tallest point of the sock (in inches)
+        tr
+          td sock_length
+          td number
+          td yes
+          td desired length of the sock (in inches)
+        tr
+          td stitch_gauge
+          td number
+          td yes
+          td number of stitches per inch
+        tr
+          td row_gauge
+          td number
+          td yes
+          td number of rows per inch
+        tr
+          td pattern_repeat
+          td number
+          td yes
+          td pattern repeat length in stitches
       h4 Response
       pre
         code
           | {
           |   "_id": "string",
-          |   "name": "string",
-          |   "email": "string",
-          |   "createdAt": "date"
+          |   "title": "string",
+          |   "foot_circ": "number",
+          |   "foot_length": "number",
+          |   "thigh_circ": "number",
+          |   "sock_length": "number",
+          |   "stitch_gauge": "number",
+          |   "row_gauge": "number",
+          |   "pattern_repeat": "number"
           | }
 
     .endpoint
-      span.method.put PUT
-      code /users/:id
-      p Update an existing user
+      span.method.patch PATCH
+      code /patterns/:patternId
+      p Update an existing pattern
       h4 Request Body
       table
         tr
@@ -103,31 +148,272 @@ html(lang="en")
           th Required
           th Description
         tr
-          td name
+          td title
           td string
-          td No
-          td User's full name
+          td yes
+          td title of the pattern
         tr
-          td email
-          td string
-          td No
-          td User's email address
+          td foot_circ
+          td number
+          td yes
+          td circumference of the foot (in inches)
+        tr
+          td foot_length
+          td number
+          td yes
+          td foot length (in inches)
+        tr
+          td thigh_circ
+          td number
+          td yes
+          td circumference at the tallest point of the sock (in inches)
+        tr
+          td sock_length
+          td number
+          td yes
+          td desired length of the sock (in inches)
+        tr
+          td stitch_gauge
+          td number
+          td yes
+          td number of stitches per inch
+        tr
+          td row_gauge
+          td number
+          td yes
+          td number of rows per inch
+        tr
+          td pattern_repeat
+          td number
+          td yes
+          td pattern repeat length in stitches
       h4 Response
       pre
         code
           | {
           |   "_id": "string",
-          |   "name": "string",
-          |   "email": "string",
-          |   "createdAt": "date"
+          |   "title": "string",
+          |   "foot_circ": "number",
+          |   "foot_length": "number",
+          |   "thigh_circ": "number",
+          |   "sock_length": "number",
+          |   "stitch_gauge": "number",
+          |   "row_gauge": "number",
+          |   "pattern_repeat": "number"
           | }
 
     .endpoint
       span.method.delete DELETE
-      code /users/:id
-      p Delete a user
+      code /patterns/:patternId
+      p Delete a pattern
       h4 Response
-      p Returns status code 204 with no content on success.
+      pre
+        code "Pattern successfully deleted"
+  
+    h3 Projects
+
+    .endpoint
+      span.method.get GET
+      code /projects
+      p Retrieve all projects
+      h4 Response
+      pre
+        code
+          | [
+          |   {
+          |     "_id": "string",
+          |     "saveToRavlery": "boolean",
+          |     "projectDetails": {
+          |       "craft_id": 2,
+          |       "made_for": "string",
+          |       "name": "string",
+          |       "notes:" "string"
+          |      }
+          |   }
+          | ]
+
+    .endpoint
+      span.method.get GET
+      code /projects/:projectId
+      p Retrieve a specific project by ID
+      h4 Response
+      pre
+        code
+          | {
+          |   "_id": "string",
+          |   "saveToRavlery": "boolean",
+          |   "projectDetails": {
+          |     "craft_id": 2,
+          |     "made_for": "string",
+          |     "name": "string",
+          |     "notes:" "string"
+          |    }
+          | }
+
+    .endpoint
+      span.method.post POST
+      code /projects
+      p Create a new project
+      h4 Request Body
+      table
+        tr
+          th Field
+          th Type
+          th Required
+          th Description
+        tr
+          td saveToRavelry
+          td boolean
+          td yes
+          td whether or not to save project to ravelry
+        tr
+          td projectDetails
+          td object
+          td yes
+          td an object with the name, made_for, and notes properties
+        tr
+          td projectDetails.name
+          td string
+          td yes
+          td the name of the project
+        tr
+          td projectDetails.made_for
+          td string
+          td no
+          td the name of the project recipient
+        tr
+          td projectDetails.notes
+          td string
+          td no
+          td notes for the project
+      h4 Response
+      p Note: the response will only contain the ravelry object if 
+        code saveToRavlery
+        span  is set to 
+        code true
+      pre
+        code
+          | {
+          |   "project": {
+          |     "_id": "string",
+          |     "projectDetails": {
+          |       "name": "string",
+          |       "craft_id": 2,
+          |       "made_for": "string",
+          |       "notes": "string"
+          |       }
+          |   },
+          |   "ravelry": {
+          |     "project": {
+          |       "comments_count": 0,
+          |       "completed": null,
+          |       "craft_id": 2,
+          |       "created_at": "date",
+          |       "favorites_count": 0,
+          |       "id": "number",
+          |       "made_for": "string" || null,
+          |       "made_for_user_id": null,
+          |       "name": "string",
+          |       "pattern_id": null,
+          |       "permalink": "string",
+          |       "progress": null,
+          |       "project_status_changed": "date",
+          |       "project_status_id": null,
+          |       "rating": null,
+          |       "size": null,
+          |       "started": null,
+          |       "updated_at": "date",
+          |       "user_id": "number",
+          |       "links": {
+          |         "self": {
+          |           "href": "string"
+          |          }
+          |       },
+          |       "personal_attributes": null,
+          |       "pattern_name": null,
+          |       "craft_name": "Knitting",
+          |       "status_name": null,
+          |       "tag_names": [],
+          |       "notes_html": null,
+          |       "notes": "string" || null,
+          |       "needle_sizes": [],
+          |       "photos_count": 0,
+          |       "ends_per_inch": null,
+          |       "picks_per_inch": null,
+          |       "gauge": null,
+          |       "row_gauge": null,
+          |       "gauge_repeats": null,
+          |       "gauge_divisor": null,
+          |       "gauge_pattern": null,
+          |       "private_notes_html": null,
+          |       "private_notes": null,
+          |       "completed_day_set": false,
+          |       "started_day_set": false,
+          |       "photos": [],
+          |       "packs": [],
+          |       "user": {
+          |         "id": "number",
+          |         "username": "string",
+          |         "tiny_photo_url": "string",
+          |         "small_photo_url": "string",
+          |         "photo_url": "string"
+          |       },
+          |       "tools": []
+          |     },
+          |     "user": {
+          |       "id": "number",
+          |       "username": "string",
+          |       "tiny_photo_url": "string",
+          |       "small_photo_url": "string",
+          |       "photo_url": "string"
+          |     }
+          |   }
+          | }
+
+    .endpoint
+      span.method.patch PATCH
+      code /projects/:projectId
+      p Update an existing project
+      h4 Request Body
+      table
+        tr
+          th Field
+          th Type
+          th Required
+          th Description
+        tr
+          td name
+          td string
+          td yes
+          td the name of the project
+        tr
+          td made_for
+          td string
+          td no
+          td the name of the project recipient
+        tr
+          td notes
+          td string
+          td no
+          td notes for the project
+      h4 Response
+      pre
+        code
+          | {
+          |   "_id": "string",
+          |   "name": "string",
+          |   "made_for": "string",
+          |   "notes": "string",
+          |   "craft_id": 2
+          | }
+
+    .endpoint
+      span.method.delete DELETE
+      code /projects/:projectId
+      p Delete a project by id
+      h4 Response
+      pre
+        code "Project successfully deleted"
 
     h2 Error Responses
     p The API returns standard HTTP status codes and JSON error messages:

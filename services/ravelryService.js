@@ -28,20 +28,3 @@ export const createRavelryProject = async(projectData) => {
         throw new Error('Could not add project to Ravelry')
     }
 }
-
-export const getRavelryProject = async() => {
-
-    try {
-        const response = await axios.get(`${RAV_API_BASE_URI}/projects/DragonChilde/list.json`, {
-            auth: {
-                username: RAV_USERNAME,
-                password: RAV_PASSWORD
-            }
-        })
-
-        return response.data
-    } catch (e) {
-        console.error("error fetching projects from Ravelry", e.message)
-        throw new Error("could not fetch projects from Ravelry")
-    }
-}

@@ -1,9 +1,17 @@
-# Backend API Template
+# Backend API For Stocking Pattern Generator
 
-## Instructions
-1. clone the repo `git clone <repo-url> <new-project-name>`
-2. cd into your new project folder and run `npm i`
-3. remove previous git repo `rm -rf .git`
-4. create a new `.env` file and add an environment variable called `MONGODB_URI` with your uri
-5. run the app with `npm run dev`
+## Description 
+This is the backend for my Per Scholas capstone project, a web app that generates a custom, toe-up, thigh high stocking pattern. The backend is connected to my personal Ravelry account and can add project to my account  
+
+API documentation can be found [here](https://capstone-backend-i1us.onrender.com/)
+
+## Technologies Used
+- Express
+- MongoDB
+- Mongoose
+- pug
+
+## Future Work
+- implement sign-in to Ravlery so projects can be saved to other accounts
+- implement users
 

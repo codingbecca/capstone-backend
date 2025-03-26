@@ -1,7 +1,7 @@
 {
-  "name": "backend-template",
+  "name": "capstone-backend",
   "version": "1.0.0",
-  "description": "API template project",
+  "description": "API for Per Scholas capstone",
   "license": "ISC",
   "author": "Rebecca",
   "type": "module",
